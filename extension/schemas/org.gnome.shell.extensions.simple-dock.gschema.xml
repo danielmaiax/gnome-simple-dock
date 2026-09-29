@@ -267,7 +267,7 @@
       <description>Replace current theme background color for the panel</description>
     </key>
     <key type="s" name="trans-bg-color">
-      <default>'#3B4423'</default>
+      <default>'#303030'</default>
       <summary>Custom background color</summary>
       <description>Custom background color for the panel</description>
     </key>

@@ -1,12 +1,12 @@
 # Simple Dock
 
-Barra de tarefas verde oliva para Ubuntu, baseada no **Dash to Panel 74**.
-Versão inicial: **0.1.0**, para **GNOME Shell 50** (ambiente alvo: Ubuntu 26.04).
+Barra de tarefas personalizável para Ubuntu, baseada no **Dash to Panel 74**.
+Versão inicial: **0.1.1**, para **GNOME Shell 50** (ambiente alvo: Ubuntu 26.04).
 
 ## Comportamento padrão
 
 - Barra inferior de 32 px em cada monitor, sempre visível.
-- Verde oliva escuro `#3B4423`, totalmente opaco.
+- Cor personalizável nas preferências; grafite `#303030` como padrão, totalmente opaco.
 - Cada barra mostra somente as janelas do seu monitor e espaço de trabalho atual.
 - Janelas sem agrupamento por aplicativo; favoritos continuam disponíveis.
 - Botão de aplicativos (Iniciar) somente no monitor principal do sistema.

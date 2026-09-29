@@ -6,7 +6,7 @@
   "isolate-monitors": "true",
   "group-apps": "false",
   "group-apps-use-fixed-width": "true",
-  "trans-bg-color": "'#3B4423'",
+  "trans-bg-color": "'#303030'",
   "trans-use-custom-bg": "true",
   "trans-use-custom-opacity": "true",
   "trans-panel-opacity": "1.0",
