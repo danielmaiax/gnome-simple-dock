@@ -11,7 +11,7 @@
         <property name="title">Simple Dock</property>
         <child>
           <object class="AdwActionRow">
-            <property name="title">Código da Simple Dock</property>
+            <property name="title">Simple Dock source code</property>
             <child>
               <object class="GtkLinkButton">
                 <property name="label">GitHub</property>

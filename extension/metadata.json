@@ -1,7 +1,7 @@
 {
   "uuid": "simple-dock@dmagovbr",
   "name": "Simple Dock",
-  "description": "Barra inferior com cor personalizável, com janelas isoladas por monitor e espaço de trabalho. Botão de aplicativos apenas no monitor principal. Fork independente do Dash to Panel 74 (https://github.com/home-sweet-gnome/dash-to-panel).",
+  "description": "Customizable bottom panel with windows isolated by monitor and workspace. The Show Applications button appears only on the primary monitor. Independent fork of Dash to Panel 74 (https://github.com/home-sweet-gnome/dash-to-panel).",
   "shell-version": [
     "50"
   ],

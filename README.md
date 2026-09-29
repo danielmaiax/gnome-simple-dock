@@ -1,58 +1,46 @@
 # Simple Dock
 
-Barra de tarefas personalizável para Ubuntu, baseada no **Dash to Panel 74**.
-Versão inicial: **0.1.1**, para **GNOME Shell 50** (ambiente alvo: Ubuntu 26.04).
+A customizable Ubuntu taskbar based on **Dash to Panel 74**. The initial release is **0.1.1** for **GNOME Shell 50** (target environment: Ubuntu 26.04).
 
-## Comportamento padrão
+## Default behavior
 
-- Barra inferior de 32 px em cada monitor, sempre visível.
-- Cor personalizável nas preferências; grafite `#303030` como padrão, totalmente opaco.
-- Cada barra mostra somente as janelas do seu monitor e espaço de trabalho atual.
-- Janelas sem agrupamento por aplicativo; favoritos continuam disponíveis.
-- Botão de aplicativos (Iniciar) somente no monitor principal do sistema.
-- Relógio e controles do sistema em cada barra.
-- Configurações próprias, separadas das configurações do Dash to Panel.
+- A 32 px bottom panel on every monitor, always visible.
+- Customizable panel color, with fully opaque graphite (`#303030`) as the default.
+- Each panel shows windows from its own monitor and current workspace.
+- Windows are not grouped by application; favorites remain available.
+- The Show Applications button appears only on the system's primary monitor.
+- A clock and system controls appear on every panel.
+- Separate settings from Dash to Panel.
 
-O botão Iniciar abre a grade de aplicativos do GNOME. A extensão não inclui um menu
-estilo Windows. O papel de parede preto é uma configuração do desktop e não é
-alterado pela extensão.
+The Show Applications button opens GNOME's app grid. The extension does not include a Windows-style Start menu. It does not change the desktop wallpaper.
 
-O layout não inclui identificadores dos monitores do autor: os padrões também
-se aplicam a monitores novos. A regra do botão de aplicativos acompanha o monitor
-principal e é aplicada novamente quando o Dash to Panel reconstrói as barras.
-Os demais controles herdados continuam disponíveis na janela de preferências.
+The layout uses no author-specific monitor IDs, so the defaults also apply to new monitors. The Show Applications button follows the primary monitor and is reapplied when Dash to Panel rebuilds the panels. Other inherited controls remain available in Preferences.
 
-## Gerar e verificar
+## Build and verify
 
-Requisitos: Python 3, Node.js e `glib-compile-schemas` (GLib).
-Não requer baixar dependências.
+Requirements: Python 3, Node.js, and `glib-compile-schemas` (GLib). No dependency downloads are needed.
 
 ```sh
 python3 scripts/build.py
 ```
 
-O processo verifica a sintaxe JavaScript, testa a regra do monitor principal,
-compila os schemas, confere os padrões e gera:
-`dist/simple-dock@dmagovbr.shell-extension.zip`.
+The build checks JavaScript syntax, tests the primary monitor rule, compiles schemas, verifies defaults, and creates `dist/simple-dock@dmagovbr.shell-extension.zip`.
 
-## Instalar e experimentar
+## Install and try
 
 ```sh
 gnome-extensions install --force dist/simple-dock@dmagovbr.shell-extension.zip
 ```
 
-Se o GNOME ainda não reconhecer a extensão instalada pelo ZIP, registre-a na
-sessão atual: pressione **Alt + F2**, digite `lg` e execute no console:
+If GNOME does not yet recognize the extension installed from the ZIP, register it in the current session: press **Alt + F2**, type `lg`, and run this in the console:
 
 ```js
 await Main.extensionManager.loadExtension(Main.extensionManager.createExtensionObject('simple-dock@dmagovbr', Gio.File.new_for_path(GLib.get_user_data_dir() + '/gnome-shell/extensions/simple-dock@dmagovbr'), 2))
 ```
 
-Isso serve para a primeira instalação, quando a extensão ainda não aparece em
-`gnome-extensions list`. O retorno `undefined` é normal. Feche o console com Esc.
-Como alternativa, sair da sessão e entrar novamente também registra a extensão.
+This is for the first installation, when the extension does not yet appear in `gnome-extensions list`. An `undefined` result is normal. Press Esc to close the console. Logging out and back in also registers the extension.
 
-Então execute:
+Then run:
 
 ```sh
 gnome-extensions disable dash-to-panel@jderose9.github.com
@@ -61,47 +49,33 @@ gnome-extensions enable simple-dock@dmagovbr
 gnome-extensions prefs simple-dock@dmagovbr
 ```
 
-Use somente uma dessas extensões de barra por vez. A Simple Dock mantém APIs
-internas do projeto original, por isso não deve funcionar simultaneamente com
-Dash to Panel. Sua configuração original fica preservada.
+Use only one of these panel extensions at a time. Simple Dock retains internal APIs from Dash to Panel and should not run alongside it. Your original Dash to Panel settings remain intact.
 
-Para voltar:
+To switch back:
 
 ```sh
 gnome-extensions disable simple-dock@dmagovbr
 gnome-extensions enable dash-to-panel@jderose9.github.com
 ```
 
-## Validação
+## Validation
 
-A extensão foi carregada e ativada no GNOME Shell 50.1 sem reiniciar a sessão.
-A validação completa em vários monitores ainda está pendente. Conferir:
+The extension was loaded and enabled on GNOME Shell 50.1 without restarting the session. Full visual validation across multiple monitors is still pending. Check:
 
-1. Barras embaixo, com altura e cor corretas em todas as telas.
-2. Mover uma janela entre telas: ela aparece apenas na barra de destino.
-3. Trocar de espaço de trabalho: somente suas janelas aparecem.
-4. Alterar o monitor principal e conectar/desconectar uma tela: somente a tela
-   principal mantém o botão de aplicativos.
-5. Abrir preferências, mudar opções, desabilitar e reabilitar a extensão.
+1. Panel position, height, and color on each monitor.
+2. Moving a window between monitors: it appears only on the destination panel.
+3. Switching workspaces: only windows from the active workspace appear.
+4. Changing the primary monitor and connecting or disconnecting a display: only the primary display retains the Show Applications button.
+5. Changing preferences, then disabling and re-enabling the extension.
 
-O isolamento filtra as janelas; o comportamento dos espaços de trabalho nas telas
-secundárias também depende da configuração de espaços de trabalho do GNOME.
+Window isolation is handled by the extension. Workspace behavior on secondary displays also depends on GNOME's workspace settings.
 
-## Publicação
+## Publishing
 
-Repositório do projeto: https://github.com/danielmaiax/gnome-simple-dock.
-O código é distribuído pelo GitHub; gere o ZIP com o comando de build acima.
-Depois dos testes visuais, enviar o ZIP para https://extensions.gnome.org/upload/.
-A listagem no GNOME Extensions depende de revisão; não há publicação automática.
-O UUID deve continuar estável para manter as atualizações.
+Project repository: https://github.com/danielmaiax/gnome-simple-dock. The source is distributed through GitHub; create the ZIP with the build command above. After visual testing, submit the ZIP at https://extensions.gnome.org/upload/. The GNOME Extensions listing requires review and is not published automatically. Keep the UUID stable to support updates.
 
-## Origem e licença
+## Origin and license
 
-Fork independente de https://github.com/home-sweet-gnome/dash-to-panel,
-baseado na versão 74 instalada localmente. Não é um produto oficial do Ubuntu
-nem dos mantenedores do Dash to Panel.
+An independent fork of https://github.com/home-sweet-gnome/dash-to-panel, based on the locally installed version 74. This is not an official Ubuntu or Dash to Panel project.
 
-Licença **GPL-2.0-or-later**. Os avisos de autoria e a licença originais foram
-preservados. Veja `COPYING` e `UPSTREAM-README.md`. As alterações Simple Dock
-incluem identidade própria, schema independente, padrões pessoais, regra do
-monitor principal e ferramentas de empacotamento e validação.
+Licensed under **GPL-2.0-or-later**. Original authorship notices and licenses are preserved in `COPYING` and `UPSTREAM-README.md`. Simple Dock changes include its own identity and schema, new defaults, the primary monitor rule, and packaging and validation tools.
