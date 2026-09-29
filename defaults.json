@@ -1,0 +1,17 @@
+{
+  "panel-position": "'BOTTOM'",
+  "panel-size": "32",
+  "multi-monitors": "true",
+  "isolate-workspaces": "true",
+  "isolate-monitors": "true",
+  "group-apps": "false",
+  "group-apps-use-fixed-width": "true",
+  "trans-bg-color": "'#3B4423'",
+  "trans-use-custom-bg": "true",
+  "trans-use-custom-opacity": "true",
+  "trans-panel-opacity": "1.0",
+  "trans-use-dynamic-opacity": "false",
+  "trans-use-custom-gradient": "false",
+  "intellihide": "false",
+  "stockgs-keep-top-panel": "false"
+}

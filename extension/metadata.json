@@ -1,0 +1,13 @@
+{
+  "uuid": "simple-dock@dmagovbr",
+  "name": "Simple Dock",
+  "description": "Barra inferior verde oliva, com janelas isoladas por monitor e espaço de trabalho. Botão de aplicativos apenas no monitor principal. Fork independente do Dash to Panel 74 (https://github.com/home-sweet-gnome/dash-to-panel).",
+  "shell-version": [
+    "50"
+  ],
+  "version": 1,
+  "version-name": "0.1.0",
+  "gettext-domain": "dash-to-panel",
+  "settings-schema": "org.gnome.shell.extensions.simple-dock",
+  "url": "https://github.com/danielmaiax/gnome-simple-dock"
+}
